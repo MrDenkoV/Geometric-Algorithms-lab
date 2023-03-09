@@ -1,0 +1,27 @@
+Zrobione:
+	Zadania:1, 2, 3, 4, 5, 6
+	Wprowadzanie wielokątu myszk, zapis i odczyt z pliku.
+	Implementacja procedury sprawdzania czy wielokąt jest y-monotoniczny. Opis 2)
+	Implementacja klasyfikacji wierzchołków, wraz z wizualizacją.
+	Implementacja triangulacji wielokąta monotonicznego, wraz z wizualizacją kolejnych kroków algorytmu.
+	Opis 5)
+	Przetestowano. Opis 6)
+
+Opisy:
+	2):
+	Sprawdzanie czy wielokąt jest y-monotoniczny przy użyciu klasyfikacji wierzchołków. Wielokąt jest y-monotoniczny <=> gdy żadne jego wierzchołki nie zostały sklasyfikowane jako łączące ani dzielące.
+
+	5):
+	Do przechowywania wielokąta wykorzystuję tablicę odcinków, w odpowiedniej(zadanej przez użytkownika - odwrotnej do ruchu wskazówek zegara) kolejności. Każdy odcinek jest dwuelementową tablicą zawierającą tablie dwuelementowe współrzędnych, odpowiednich końców odcinka. Później przechowuję jeszcze łańcuchy lewy i prawy w tablicach, w kolejności od największego y - elementami są talice dwuelementowe, w których pierwszym elementem są współrzędne kolejnych punktów łancuch i informacja do którego łańcucha należy wierzchołek.
+	Do przechowania triangulacji wykorzystuję tablicę trójkątów, gdzie każdy trójkąt to tablcia 3 elementowa, w której każdym elementem jest odcinek. Każdy odcniek jest dwuelementową tablicą zawierającą tablice dwuelementowe współrzędnych, odpowiednich końców odcinka.
+	Uznałem, że takie struktury będą najłatwiejsze w implementacji i najbardziej dla mnie czytelne.
+
+	6):
+	Program przetestowany na różnych zestawach danych, w tym:
+	Figury przedstawione przez Panią Doktor, na zajęciach(pliki pierwszy.json i drugi.json) - figura składająca się z łańcucha lewego, który zawiera 1 punkt(poza początkowym i końcowym) oraz prawego, który zawiera wiele punktów, tworzących "ząbki", gdzie część z nich jest ponad, a reszta pod punktem prawidłowym z lewego łańcucha. Oraz sytauacja symetryczna.
+	Te figury dobrze przedstawiają jak program sobie radzi z sytuacją gdy wiele wierzchołków pod rząd należy do tego samego łancucha i czy trójkąty nie wyskakują poza figurę.
+	Zwykłą figurę y-monotoniczną, która nie ma żadnych specjalnych właśności - ymono.json. 
+	Ta figura obrazuje jak program radzi sobie w przeciętnej sytuacji, z częstym skakaniem między łancuchami.
+	Dodatkowo klasyfikację przetestowałem na figurze zawierającej wszystkie typy wierzchołków - alltypes.json.
+	Pozwala to upewnić się, że klasyfikacja wierzchołków działa poprawnie.
+

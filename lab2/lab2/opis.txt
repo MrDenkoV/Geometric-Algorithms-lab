@@ -1,0 +1,42 @@
+Zrobione:
+    Zadanie 1, 2, 3, 4 i 5
+    Generacja, wraz z wizualizacją i zmianą parametrów
+    Działająca implementacja algorytmów Jarvisa i Grahama na otoczkę wypukłą, wraz z wizualizacją.
+    Opis.
+    
+    
+
+Zadanie 5:
+    Mój program działa poprawnie dla wszystkich zestawów danych.
+    
+    Dla losowania zgodnie z pkt a):
+        Algorytm Grahama działa trochę wolniej(w zależności od zestawu danych) - mniej więcej 1/3 raza dłużej niż algorytm Jarvisa. Czasy są rzędu 0.003s, 0.004s.
+        Dla większej liczby punktów(n=10000), algorytm Jarvisa jest trochę wolniejszy od algorytmu Grahama(w zależności od zestawu danych) - mniej więcej 10% szybciej. Czasy są rzędu 0.378s, 0.421s.
+        
+    Dla losowania zgodnie z pkt b):
+        Algorytm Grahama jest zauważalnie szybszy od algorytmu Jarvisa - mniej więcej 5 razy szybszy. Czasy są rzędu 0.003s, 0.016s.
+    Dla większej liczby punktów (n==1000), tendencja utrzymuje się - algorytm Jarvisa jest szybszy, nawet 40 razy od algorytmu Grahama. Czasy są rzędu 0.047s, 1.560s. Dla n=10000 algorytm Jarvisa działa na tyle długo, że z obawy na crash środowiska przerywałem działanie, algorytm Grahama działał rozsądnie długo.
+
+    Dla losowania zgodnie z pkt c):
+    Algorytm Jarvisa działa trochę szybciej od algorytmu Grahama - mniej więcej 25% szybciej. Czasy są rzędu 0.004s, 0.003s.
+    Dla większej liczby punktów (n==10000), tendencja utrzymuje się - algorytm Jarvisa jest szybszy, nawet prawie 3 razy od algorytmu Grahama. Czasy są rzędu 0.311s, 0.125s.
+
+    Dla losowania zgodnie z pkt d):
+    Algorytm Jarvisa jest minimalnie szybszy od algorytmu Grahama - mniej więcej o 6% - o mniej niż 6*(1e-5)s. Czasy są rzędu 0.001s
+    Dla większej liczby punktów (1000 razy więcej - 25000 na krawędziach i 20000 na przekątnych) algorytm Jarvisa jest znacznie szybszy od algorytmu Grahama - mniej więcej 2 razy.Czasy są rzędu 0.720s, 0.373s.
+
+    Zbiory:
+    Punkty z pkt a) są zupełnie losowe na zadanym prostokącie, dzięki czemu testują nasz program czy działa dobrze dla bardzo różnych zbiorów danych.
+
+    Punkty z pkt b) są losowane na okrgu, dzięki czemu łatwo sprawdzić poprawność programu - każdy punkt powinien znajdować się na otoczce(ew pojedyncze punkty blisko siebie mogą się nie załapać), problemem jest czas działania dla algorytmu Jarvisa. Dodatkowo przykład ten doskonale obrazuje zalety algorytmu Grahama nad algorytmem Jarvisa - różnica złożoności O(nlogn), a O(nk) - co dla k~n O(n^2).
+
+    Punkty z pkt c) są losowane na prostokącie, dzięki czemu łatwo sprawdzić poprawność algorytmu - na każdym boku powinny się znaleźć dwa punkty z otocznki(w wyjątkowych sytuacjach 1), sprawdzane również były punkty współliniowe czy nie psują programu. Dodatkowo przykład ten doskonale obrazuje zalety algorytmu Jarvisa nad algorytmem Grahama dla zbiorów danych z korzystnymi ograniczeniami - różnica złożoności O(nlogn), a O(nk) - co dla k małych wychodzi zauważalnie lepiej.
+
+    Punkty z pkt d) są losowane na 2 bokach i 2 przekątnych, mamy również gwarancję, że punkty będą we wszystkich wierzchołkach kwadratu. Podobnie jak wcześniej ułatwia to sprawdzenie poprawności - otoczka ma się składać z 4 wierzchołków i punkty wspóliniowe nam tego nie psują. Podobnie jak wcześniej obserwujemy różnicę w złożoności, tym razem mamy ustalone k=4.
+
+
+
+Załączono 9 zdjęć - pica-picd to przykłady otoczek, raz wyliczonych algorytmem Grahama(a, c), raz Jarvisa(b, d) - w obu przypadkach są takie same więc nie ma znaczenia, którego algorytmu użyjemy. Prejar, midjar i posjar przedstawia kolejne istotne kroki algorytmu Jarvisa na wizualizacji. Pregra i posgra przedstawia kolejny istotny krok w algorytmie Grahama.
+
+Załączono 8 plików textowych, których zawartości to odpowiednio dane wejściowe(in(i).txt) oraz punkty z otoczki(out(i).txt) - lista wierzchołków dodawanaych przez program(bez dodania na koniec pierwszego wierzchołka). (i) odpowiada numerowi zdjęcia oraz sposobowi generowania danych wejściowych, który przedstawia wizualizację programu.
+

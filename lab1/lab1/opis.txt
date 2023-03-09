@@ -1,0 +1,22 @@
+Edytowane 6.11.2019, po uwagach na ćwiczeniach, że generowanie punktów na prostej jest złe
+plik Denkowski_1_dom1.zip ma zawartość jaką powinien mieć Denkowski_1_dom.zip(bez modyfikacji od czasu wysłania Denkowski_1_dom.zip)
+
+Zrobione:
+    Generacja z wizualizacją
+    2 metody własne liczenia wyznacznika
+    Klasyfikacja i wizaulizacja danych
+    Dostosowanie do zmiany eps i det
+    2 Wyznaczniki biblioteczne
+    Różne epsilony
+
+
+Obserwacje:
+    Im mniejszy ustalimy epsilon, tym surowsza klasyfikacja i dokładniejsze wyniki, ale można przesadzić i przybliżanie wartości do 0 stanie się nieosiągalne. Warto pamiętać, żeby epsilon uzależniać od rozmiarów danych(dla większych danych epsilon powinien być większy niż dla danych małych - rozmiar danych pod względem wartości nie ilości), wynika to z dokładności i sposobu przechowywania danych zmiennoprzecinkowych przez komputer.
+    
+    Dla zbioru a), z dokładnością eps=1e-5 i eps=1e-14, wszystkie wyznaczniki klasyfikują tak samo. 
+    
+    Dla zbioru b), z dokładnością eps=1e-14, eps=1e-5, tylko wyznacznik własny 2x2 klasyfikuje inaczej, prawdopodobnie jest to kwestia dokładności działań zmiennoprzecinkowych, co funkcja biblioteczna prawdopodobnie stara się niwelować.
+    
+    Dla zbioru c), z dokładnością eps=1e-5, eps=1e-14, wszystkie wyznaczniki klasyfikuja tak samo.
+    
+    Dla zbioru d), z dokładnością eps=1e-7, wszystie wyznaczniki klasyfikują tak samo. Już dla epsilona eps=1e-12 występują różnice i dokładniejsze okazują się być oba wyznaczniki 3x3. Dopiero dla eps=1e-14 klasyfikacje dla wyznaczników 3x3 są różne i funkcja biblioteczna źle klasyfikuje więcej punktów.

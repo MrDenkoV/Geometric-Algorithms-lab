@@ -1,0 +1,19 @@
+Zrobione:
+    Generacja z wizualizacją
+    2 metody własne liczenia wyznacznika
+    Klasyfikacja i wizaulizacja danych
+    Dostosowanie do zmiany eps i det
+    2 Wyznaczniki biblioteczne
+    Różne epsilony
+
+
+Obserwacje:
+    Im mniejszy ustalimy epsilon, tym surowsza klasyfikacja i dokładniejsze wyniki. Warto pamiętać, żeby epsilon uzależniać od rozmiarów danych(dla większych danych epsilon powinien być większy niż dla danych małych - rozmiar danych pod względem wartości nie ilości).
+    Dla zbioru a), z dokładnością eps=1e-5 i eps=1e-1, wszystkie wyznaczniki klasyfikują tak samo. Nawet dla większych eps=1e3 wyznaczniki klasyfikują tak samo, ale epsilon takiej wilekości dla takich danych nie ma sensu.
+    Dla zbioru b), z dokładnością eps=1e-5, eps=1e-1 oraz eps=1e5, tylko wyznacznik własny 2x2 klasyfikuje inaczej, prawdopodobnie jest to kwestia dokładności działań zmiennoprzecinkowych, co funkcja biblioteczna prawdopodobnie stara się niwelować. Dopiero przy eps=1e9, funkcja biblioteczna 2x2 również zaczęła klasyfikować inaczej.
+    Dla zbioru c), z dokładnością eps=1e-5, eps=1e-1, wszystkie wyznaczniki kllasyfikuja rak samo. Ponownie dla nawet dla większych eps=1e1 dane są klasyfikowane tak samo przez wszystkie wyznaczniki, i ponownie tak duży epsilon nie ma sensu dla tych danych.
+    
+    Zdecydowanie najciekawsza jest klasyfikacja zbioru d):
+    Dla dokładności eps=1, wszystkie wyznaczniki klasyfikują wszystkie punkty jako należące do prostej.
+    Dla dokładności eps=1e-1, już każdy wyznacznik klasyfikuje punkty inaczej, co ciekawe wszystkie są zgodne, że żadna wartość wyznacznika nie jest większa niż epsilon. Najwięcej zgodnych ma własny wyznacznik 2x2, najmniej własny 3x3. Najbardziej zrównoważony rozkład punktów pokrywających się z prostą ma bibiloteczna funkcja wyznacznika 3x3(na całej długości prostej).
+    Dla dokładności eps=1e-2, już żaden wyznacznik nie klasyfikuje punktów jako należące do prostej.

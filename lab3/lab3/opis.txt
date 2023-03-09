@@ -1,0 +1,29 @@
+Zrobione:
+	Zrobione 1,2,3,4,5,6,7,8,9
+	Generowanie losowe i ręczne wprowadzanie odcinków
+	Algorytm sprawdzający czy odcinki się przecinają w przynajmniej jednym miejscu
+	Opis 3)
+	Wizualizacja kolejnych kroków, wraz z wizualizacją miotły i jej stanu
+	Przetestowany na różnych zestawach danych
+	Algorytm wyznaczający wszystkie przecięcia odcinków, ich liczbę i opis każdego, dodano wizaulizację wykrytych punktów
+	Opis 7)
+	Przetestowane na różnych zestawach danych
+	Opis 9), uwzględnianie wykrycia przecięcia więcej niż raz
+
+Opisy:
+	3)
+	Struktura zdarzeń jest sortedset'em z biblioteki blist, podobnie jak miotła.
+	W strukturze zdarzeń trzymam tuple, składające się z (współrzędnej x zdarzenia, informacji o typie zdarzenia[0-początek, 1-koniec], numer porządkowy odcinka[w liście danej jako argument], element class'y Line).
+	Line to class'a która przechowuje informacje o początku i końcu odcinka, współczynniku kierunkowym oraz wyrazie wolnym prostej która przez niego przechodzi. Określiłem comparator dla tej struktury, który wykorzystując statyczną zmienną porównuje wzajemne położenie odcinków.
+	W miotle trzymam elementy class'y Line. Domyślnie jest sortowane przy pomocy mojego przeładowanego operatora.
+
+
+	7)
+	Ja w moim programie wykorzystałem za każdym razem te same struktury danych, nie jest to jednak konieczne.
+	Struktura miotły może pozostać ta sama - w obu sytuacjach tylko dodajemy i usuwamy elementy tej samej class'y. W drugim algorytmie do zamiany dwóch odcinków miejscami, możemy wykorzystać usunięcie ich i ponowne dodanie(przesuniętych o drobny epsilon, aby funkcja porównująca mogła deterministycznie określić ich porządek).
+	Struktura zdarzeń w przypadku drugiego algorytmu musi nam gwarantować wstawianie elementów(punktów przecięć), co nie było konieczne w przypadku pierwszego algorytmu.
+
+
+	9)
+	Mój program uwzględnia wykrycie kilka razy tego samego przecięcia. Trzymam dodatkową strukturę set'u, i po wykryciu przecięcia sprawdzam w niej czy takiego przecięcia już w niej nie ma. Dopiero po upewnieniu się, że punkt jest unkiatowy wstawiam go do setu i aktualizuje listę zdarzeń. Udokumentowane zdjęciem niedoubluja.png i zapisane w pliku trudny.json.
+
